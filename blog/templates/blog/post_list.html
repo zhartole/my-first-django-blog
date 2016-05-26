@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge</title>
+    <!-- style -->
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+<header>
+    <nav id="head-menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Challenge</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CSS <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#css">Grouping selectors</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#css-pseudo">Pseudo selectors</a></li>
+                            <li><a href="#css-plus">Sibling elements selectors</a></li>
+                            <li><a href="#css-child">Children selectors</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#http">HTTP</a></li>
+                    <li><a href="#js">JavaScript & AJAX</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">OOP</a></li>
+                    <li><a href="#python">Python</a></li>
+                    <li><a href="">Django</a></li>
+                    <li class="to-top"><a href="#">To top</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav><!-- / #head-menu -->
+</header>
+<main class="container content">
+    <section id="css" class="row task">
+        <section class="col-xs-12 group-about">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 group-title">Групування стилів</div>
+                <div class="col-xs-12 col-md-8 description">
+                <p>Для того щоб не прописувати стилі для кожного елемента(селектора) окремо та полегшити навігацію по
+                    DOM дереву в CSS існують інструменти для групування стилів.</p>
+                <p>Розглянемо їх по порядку.</p>
+            </div>
+            </div>
+        </section><!-- / about -->
+        <section class="col-xs-12 exemples">
+            <div id="css-coma" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>.example-class-list, .example-class-too {
+                        color:#777;
+                        background:lightgreen;
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    <span class="example-class-list">Це елемент з класом <code>example-class-list</code></span>Це просто текст<span class="example-class-too">Це елемент з класом <code>example-class-too</code></span>
+                </div>
+            </div><!-- / coma -->
+            <div id="css-universal" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>
+                        .example-class-universal * {
+                        background:rgba(0, 153, 0, 0.57);
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    Універсальний селектор * означає присвоїти стиль всім наслідникам елемента. Список нище ми "обгорнули" в клас <code>example-class-universal</code>
+                    <ul class="example-class-universal">
+                        <li>Перший</li>
+                        <li>Другий</li>
+                        <li>Третій</li>
+                        <li>Четвертий</li>
+                        <li>П'ятий</li>
+                        <li>Шостий</li>
+                        <li>Сьомий</li>
+                    </ul>
+                </div>
+            </div><!-- / universal -->
+            <div id="css-arg" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>
+                        .example-class-arg li.ok {
+                        background:rgba(0, 153, 0, 0.57);
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    Контекстний селектор (вказування шляху до елементу/елементів) означає присвоїти стиль всім елементам li з класом <code>ok</code>. Список нище ми "обгорнули" в клас <code>example-class-arg</code>
+                    <ul class="example-class-arg">
+                        <li>Перший</li>
+                        <li>Другий</li>
+                        <li class="ok">Третій</li>
+                        <li>Четвертий</li>
+                        <li>П'ятий</li>
+                        <li>Шостий</li>
+                        <li>Сьомий</li>
+                    </ul>
+                </div>
+            </div><!-- / arg -->
+            <div id="css-pseudo" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>
+                        .example-class-pseudo li:hover,
+                        .example-class-pseudo li:active,
+                        .example-class-pseudo li:focus {
+                        background:rgba(0, 153, 0, 0.27);
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    Псевдокласи. <code>:hover</code> стилі присвоєні для даного псевдокласа відображаються при наведенні
+                    на вказаний елемент.<code>:active</code> - коли елемент активний(натсинення)
+                    <code>:focus</code> - коли на елементі фокус(пр., - введення тексту в input)
+                    Список нище ми "обгорнули" в клас <code>example-class-pseudo</code>
+                    <ul class="example-class-pseudo">
+                        <li>Перший</li>
+                        <li>Другий</li>
+                        <li>Третій</li>
+                        <li>Четвертий</li>
+                        <li>П'ятий</li>
+                        <li>Шостий</li>
+                        <li>Сьомий</li>
+                    </ul>
+                </div>
+            </div><!-- / pseudo -->
+            <div id="css-plus" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>
+                        .example-class-plus li.ok + li {
+                        background:rgba(0, 153, 0, 0.27);
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    Сусідній селектор. В даному прикладі стилі застосуються для <code>li</code> котрий іде зразу ж за <code>li class="ok"</code>
+                    <ul class="example-class-plus">
+                        <li>Перший</li>
+                        <li>Другий</li>
+                        <li class="ok">Третій</li>
+                        <li>Четвертий</li>
+                        <li>П'ятий</li>
+                        <li>Шостий</li>
+                        <li>Сьомий</li>
+                    </ul>
+                </div>
+            </div><!-- / plus -->
+            <div id="css-tilde" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>
+                        .example-class-tilde li.ok ~ li {
+                        background:rgba(0, 153, 0, 0.27);
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    Сусідні селектори. В даному прикладі стилі застосуються для всіх<code>li</code> котрі ідуть зразу ж за <code>li class="ok"</code>
+                    <ul class="example-class-tilde">
+                        <li>Перший</li>
+                        <li>Другий</li>
+                        <li class="ok">Третій</li>
+                        <li>Четвертий</li>
+                        <li>П'ятий</li>
+                        <li>Шостий</li>
+                        <li>Сьомий</li>
+                    </ul>
+                </div>
+            </div><!-- / tilde -->
+            <div id="css-child" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>
+                        #example-class-child li > .sibling {
+                        background:rgba(0, 153, 0, 0.27);
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    В даному прикладі стилі застосуються для елемента з класом <code>sibling</code> котрий яляється
+                    прямим потомком <code>li</code>.
+                    <ul id="example-class-child">
+                        <li>Перший</li>
+                        <li>Другий</li>
+                        <li>Третій <span class="sibling">Це елемент з класом <code>sibling</code></span></li>
+                        <li>Четвертий</li>
+                        <li>П'ятий</li>
+                        <li>Шостий</li>
+                        <li>Сьомий</li>
+                    </ul>
+                </div>
+            </div><!-- / child -->
+            <div id="css-atr" class="row">
+                <div class="subtitle col-xs-12 col-md-4">
+                    <code>
+                        #example-class-atr span[data-info] {
+                        background:rgba(0, 153, 0, 0.27);
+                        }
+                    </code>
+                </div>
+                <div class="description col-xs-12 col-md-8">
+                    Пошук по атрибутам. В даному прикладі стилі застосуються для елемента з атрибутом <code>data-info</code>
+                    в середині <code>id="example-class-atr"</code>.
+                    <ul id="example-class-atr">
+                        <li>Перший</li>
+                        <li>Другий</li>
+                        <li>Третій</li>
+                        <li>Четвертий</li>
+                        <li>П'ятий <span data-info="sibling">Це елемент з атрибутом <code>data-info</code></span></li>
+                        <li>Шостий</li>
+                        <li>Сьомий</li>
+                    </ul>
+                </div>
+            </div><!-- / atr -->
+        </section><!-- / exemples -->
+    </section><!-- /#css .task -->
+    <section id="http" class="row task">
+        <section class="col-xs-12 group-about">
+            <div class="row">
+                <div class="col xs-12 col-md-4 group-title">HTTP протокол</div>
+                <div class="col xs-12 col-md-8 description">
+                    <p>HTTP протокол - це <span data-toggle="tooltip" data-placement="top" title="клієнт-браузер; сервер-сервер;(ПО)">клієнт-серверний</span>
+                        <span data-toggle="tooltip" data-placement="top" title="прикладного рівня - взаємозвязок мережі та користувача">протокл</span> передачі даних.</p>
+                    <p>Обмін даними відбувається по схемі "запит-відповідь". Протокол не зберігає дані про стан.
+                        Вся <span data-toggle="tooltip" data-placement="top" title="затримка відповіді, IP адреси">інформація</span>
+                        зберігається на клієніті та сервері</p>
+                </div>
+            </div>
+        </section><!-- / about -->
+        <section class="col-xs-12 main-content">
+            <div class="structure">
+                <div class="text-description">
+                    HTTP повідомлення складаєтсья з 3 частин:
+                    <ol>
+                        <li>Starting line</li>
+                        <li>Headers</li>
+                        <li>Message Body</li>
+                    </ol>
+                </div><!-- / text-description -->
+                <div class="starting-line">
+                    <div class="title">1.Стартова строка</div>
+                    <div class="description">
+                        <div class="row get">
+                            <p class="subtitle" style="text-align:center;">Для запиту</p>
+                            <div class="col-xs-12 col-md-4 about">
+                                Cкладається з:
+                                <ul>
+                                    <li>Метод - назва запиту одним словом uppercase</li>
+                                    <li>URI - шлях до документу</li>
+                                    <li>Версія протоколу</li>
+                                </ul>
+                            </div><!-- /.about -->
+                            <div class="col-xs-12 col-md-8 example">
+                                Виглядає так:
+                                <div class="well">
+                                    GET /challenge HTTP/1.0 <br>
+                                    Host: web-ui.org
+                                </div>
+                            </div><!-- /.example -->
+                        </div><!-- / get -->
+                        <div class="row post">
+                            <p class="subtitle" style="text-align:center;">Для відповіді</p>
+                            <div class="col-xs-12 col-md-4 about">
+                                Cкладається з:
+                                <ul>
+                                    <li>Версія протоколу</li>
+                                    <li>Код стану</li>
+                                    <li>Опис коду стану - одним словом uppercase</li>
+                                </ul>
+                            </div><!-- /.about -->
+                            <div class="col-xs-12 col-md-8 example">
+                                Виглядає так:
+                                <div class="well">
+                                    HTTP/1.0 200 OK
+                                </div>
+                            </div><!-- /.example -->
+                        </div><!-- / post -->
+                        <div class="detail">
+                            <div class="about-method">
+                                <p>
+                                    <span class="subtitle">HTTP Метод - </span>операція яку треба провести над ресурсом. Коротке англійське слово, uppercase.
+                                    (GET, HEAD, POST - найвживаніші )
+                                </p>
+                            </div>
+                            <div class="method">
+                                <div class="row options">
+                                    <div class="col-xs-12 col-md-4">OPTIONS</div>
+                                    <div class="col-xs-12 col-md-8">
+                                        Використовується для того щоб дізнатись можливості сервера. Також може використовується
+                                        аналогічно "пінгуванню", - перевірка чи працює сервер. Виглядає так:
+                                        <div class="well">
+                                            OPTIONS * HTTP/1.0 <br>
+                                            host: web-ui.org
+                                        </div>
+                                    </div>
+                                </div><!-- / options -->
+                                <div class="row get">
+                                    <div class="col-xs-12 col-md-4">GET</div>
+                                    <div class="col-xs-12 col-md-8">
+                                        Використовуєтсья для отримання змісту ресуру або для початку якогось процесу.
+                                        В URI можна передавати параметри виконання запиту. GET запит є ідемпотентним -
+                                        повторний одинаковий запит дає такий же результат. Приклад
+                                        <div class="well">
+                                            GET /challenge?param=value HTTP/1.0 <br>
+                                            host: web-ui.org
+                                        </div>
+                                    </div>
+                                </div><!-- / get -->
+                                <div class="row head">
+                                    <div class="col-xs-12 col-md-4">HEAD</div>
+                                    <div class="col-xs-12 col-md-8">
+                                        Аналог GET без тіла. Використовується для отримання метаданих,
+                                        перевірка наявності ресурсу, перевірка зміни ресурсу
+                                    </div>
+                                </div><!-- / head -->
+                                <div class="row post">
+                                    <div class="col-xs-12 col-md-4">POST</div>
+                                    <div class="col-xs-12 col-md-8">
+                                        Використовується для передачі даних. POST не є ідемпотентним.
+                                        Дані передаються в тілі запиту. Повторне відсилання даних призведе до різних результатів.
+                                        Приклад:
+                                        <div class="well">
+                                            POST /challenge HTTP/1.0
+                                            host: web-ui.org
+                                        </div>
+                                    </div>
+                                </div><!-- / post -->
+                                <div class="row put">
+                                    <div class="col-xs-12 col-md-4">PUT</div>
+                                    <div class="col-xs-12 col-md-8">
+                                        Використовується для передачі інформації на вказаний URI. Якщо по заданій адресі немає ресурсу,
+                                        то сервер його створить. Різниця між POST і PUT:
+                                        <ul>
+                                            <li>POST передбачає, що по вказаному URI, буде відбуватись обробка переданих даних</li>
+                                            <li>PUT передбачає, що завантажені дані відповідають існуючому ресурсу</li>
+                                        </ul>
+                                    </div>
+                                </div><!-- / put -->
+                                <div class="row patch">
+                                    <div class="col-xs-12 col-md-4">PATCH</div>
+                                    <div class="col-xs-12 col-md-8">Аналогічний PUT, проте застосовується тільки для чатсини ресурсу</div>
+                                </div><!-- / patch -->
+                                <div class="row delete">
+                                    <div class="col-xs-12 col-md-4">DELETE</div>
+                                    <div class="col-xs-12 col-md-8">Видаляє вказаний ресурс</div>
+                                </div><!-- / delete -->
+                                <div class="row trace">
+                                    <div class="col-xs-12 col-md-4">TRACE</div>
+                                    <div class="col-xs-12 col-md-8">Повертає запит в такому вигляді, щоб можна було побачити яку інформацію додають/видаляють
+                                    проміжні сервери</div>
+                                </div><!-- / trace -->
+                                <div class="row connect">
+                                    <div class="col-xs-12 col-md-4 ">CONNECT</div>
+                                    <div class="col-xs-12 col-md-8 ">Видозмінює зєднання запиту в TCP/IP-тунель, зазвичай для встановлення SSL з'єднання</div>
+                                </div><!-- / connect -->
+                            </div><!-- / method -->
+                            <div class="status-code">
+                                <div class="subtitle">Коди стану HTTP</div>
+                                <div class="description"><p>За допомогою коду відповіді клієнт дізнається результат запиту
+                                і визначає що далі робити. Клієнт може не знати всіх кодів стану, проте повинен відреагувати
+                                у відповідності до класу коду стану.</p>
+                                <p>Коди стану поділяються на 5 класів</p></div>
+                                <div class="row informational">
+                                    <div class="col-xs-12 col-md-4 name">1.Інформаційний</div>
+                                    <div class="col-xs-12 col-md-8 about">
+                                        Коди цього класу повідомляють про процес передачі.
+                                        В HTTP/1.0 повідомлення з такими кодами ігнорується
+                                    </div>
+                                </div><!-- / informational -->
+                                <div class="row success">
+                                    <div class="col-xs-12 col-md-4 name">2. Успіх</div>
+                                    <div class="col-xs-12 col-md-8 about">
+                                        Коди цього класу повідомляють про успішне здійснення запиту.
+                                        Можлива передача тіла повідомлення.
+                                    </div>
+                                </div><!-- / success -->
+                                <div class="row redirection">
+                                    <div class="col-xs-12 col-md-4 name">3. Редірект</div>
+                                    <div class="col-xs-12 col-md-8 about">
+                                        Коди цього класу повідомляють що для успішного виконання запиту потрібно виконати інший запит.
+                                    </div>
+                                </div><!-- / redirection -->
+                                <div class="row client-error">
+                                    <div class="col-xs-12 col-md-4 name">4. Помилка клієнта</div>
+                                    <div class="col-xs-12 col-md-8 about">
+                                        Коди даного класу повідомляють про помилку, котра виникла на стороні клієнта.
+                                        Сервер повинен повернути в тілі пояснення причини помилки (крім запиту HEAD)
+                                    </div>
+                                </div><!-- / client-error -->
+                                <div class="row server-error">
+                                    <div class="col-xs-12 col-md-4 name">5. Помилка сервера</div>
+                                    <div class="col-xs-12 col-md-8 about">
+                                        Коди цього класу існують на випадок невдалого виконання операції по вині сервера.
+                                        В разі такої помилки, сервер повинен включати в тіло повідомлення пояснення причини(крім запиту HEAD)
+                                    </div>
+                                </div><!-- / server-error -->
+                            </div><!-- / status-code -->
+                        </div><!-- / http-method -->
+                    </div>
+                </div><!-- / starting-line -->
+                <div class="headers">
+                    <div class="title">2.Заголовок</div>
+                    <div class="description">
+                        <p>Заголовки HTTP - це строки в HTTP повідомленні, які містять інформацію у вигляді "параметр-значення".
+                        Заголовки повинні відділятись від тіла повідомлення однією пустою строкою.</p>
+                        <p>Приклад:</p>
+                        <div class="well">
+                            server: Apache/2.2.11 (Win32) PHP/7.0 <br>
+                            Last-Modified: Sat? 16 Jan 2016 21:16:42 GMT <br>
+                            Content-Type: text/plain; charset=utf-8 <br>
+                            Content-Language: ua
+                        </div><!-- / example -->
+                        <div class="type">
+                            Всі заголовки поділяються на 4 групи:
+                            <ol>
+                                <li>Основні заголовки - будь яке повідомлення</li>
+                                <li>Заголовки запиту - вкористовуються в запитах клієнта</li>
+                                <li>Заголовки відповіді - тільки для відповідей сервера</li>
+                                <li>Заголовки сущності - супроводжують кожну сутність повідомлення</li>
+                            </ol>
+                        </div><!-- / type -->
+                    </div>
+                </div><!-- / headers -->
+                <div class="message">
+                    <div class="title">3.Тіло повідомлення</div>
+                    <div class="description">
+                        Використовується для передачі тіла об'єкта
+                    </div>
+                </div><!-- / message -->
+                <div class="http-example">
+                    Приклад HTTP "діалогу"
+                    <div class="well">
+                        ___________________ GET ______________________ <br>
+                        <br>
+                        /*--- REQUEST ---*/<br>
+                        GET /challenge HTTP/1.1 <br>
+                        Host: web-ui.org<br>
+                        User-Agent: Mozilla/5.0 (X11; U; Windows7; ua; rv:1.9v5) Gecko/2008050509 Firefox/3.0b5<br>
+                        Accept: text/html<br>
+                        Connection: close<br>
+                        <br>
+                        /*-- RESPONSE --*/<br>
+                        HTTP/1.1 200 OK<br>
+                        Date: Wed, 11 Feb 2016 10:15:34 GMT<br>
+                        Server: Apache<br>
+                        X-Powered-By: PHP/5.2.4-2ubuntu5wm1<br>
+                        Last-Modified: Wed, 11 Feb 2016 10:15:34 GMT<br>
+                        Content-Language: ua<br>
+                        Content-Type: text/html<br>
+                        Content-length: 5432<br>
+                        Connection: close<br>
+                        <br>
+                        /*-- this is place for html page ---*/<br>
+                        <br>
+                        ___________________ POST _____________________<br>
+                        <br>
+                        POST /send-message.html HTTP/1.1<br>
+                        Host: web-ui.org<br>
+                        Referer: http://web-ui.org/send-message.html<br>
+                        User-Agent: BrowserForDummies/4.67b<br>
+                        Content-Type: multipart/form-data; boundary="Asrf456BGe4h"<br>
+                        Content-Length: 5432<br>
+                        Connection: keep-alive<br>
+                        Keep-Alive: 300<br>
+                        <br>
+                        <br>
+                        --Asrf456BGe4h<br>
+                        Content-Disposition: form-data; name="DestAddress"<br>
+                        <br>
+                        brutal-vasya@example.com<br>
+                        --Asrf456BGe4h<br>
+                        Content-Disposition: form-data; name="MessageTitle"<br>
+                        <br>
+                        Привіт<br>
+                        --Asrf456BGe4h<br>
+                        Content-Disposition: form-data; name="MessageText"<br>
+                        <br>
+                        Привіт, Вова!<br>
+                        --Asrf456BGe4h<br>
+                        Content-Disposition: form-data; name="AttachedFile1"; filename="horror-photo-1.jpg"<br>
+                        Content-Type: image/jpeg<br>
+                        <br>
+                        /*--- бінарний код фото ---*/<br>
+                        --Asrf456BGe4h<br>
+                        Content-Disposition: form-data; name="AttachedFile2"; filename="horror-photo-2.jpg"<br>
+                        Content-Type: image/jpeg<br>
+                        <br>
+                        /*--- бінарний код фото ---*/<br>
+                        --Asrf456BGe4h--<br>
+                        <br>
+                    </div>
+                </div><!-- / http-example -->
+            </div><!-- / structure -->
+        </section>
+    </section><!-- /#http .task -->
+    <section id="js" class="row task">
+        <section class="col-xs-12 group-about">
+            <div class="group-title">JavaScripts tasks</div>
+        </section>
+        <section class="col-xs-12 text-to-number">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <input type="text" id="example-input" placeholder="1234">
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <div id="result-box">
+                        Press number as a text and we converted it to number
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="col-xs-12 cars-info">
+            <div id="build-car" class="btn btn-success">Натисни</div>
+            <div class="row mercedes"></div>
+            <div class="row audi"></div>
+        </section>
+    </section><!-- /#js .task -->
+	<section id="python" class="row task">
+		<section class="col-xs-12 group-about">
+            <div class="group-title">Python tasks</div>
+        </section>
+		<b>Python</b> (найчастіше вживане прочитання — «<b>Па́йтон</b>», запозичено назву з британського шоу Монті Пайтон) — інтерпретована об'єктно-орієнтована мова програмування високого рівня з динамічною семантикою. Розроблена в 1990 році Гвідо ван Россумом. Структури даних високого рівня разом із динамічною семантикою та динамічним зв'язуванням роблять її привабливою для швидкої розробки програм, а також як засіб поєднання існуючих компонентів. Python підтримує модулі та пакети модулів, що сприяє модульності та повторному використанню коду.
+
+		<b>Объе́ктно-ориенти́рованное программи́рование (ООП)</b> — методология программирования, основанная на представлении программы в виде совокупности объектов, каждый из которых является экземпляром определенного класса, а классы образуют иерархию наследования.
+		<blockquote>Необходимо обратить внимание на следующие важные части этого определения: <b>1)</b> объектно-ориентированное программирование использует в качестве основных логических конструктивных элементов объекты, а не алгоритмы; <b>2)</b> каждый объект является экземпляром определенного класса; <b>3)</b> классы образуют иерархии. Программа считается объектно-ориентированной, только если выполнены все три указанных требования. В частности, программирование, не использующее наследование, называется не объектно-ориентированным, а программированием с помощью абстрактных типов данных</blockquote>
+		<h2><span id=".D0.9E.D1.81.D0.BD.D0.BE.D0.B2.D0.BD.D1.8B.D0.B5_.D0.BF.D0.BE.D0.BD.D1.8F.D1.82.D0.B8.D1.8F" class="mw-headline">Основные понятия</span></h2>
+		<dl><dt>Абстракция данных </dt><dd>Абстрагирование означает выделение значимой информации и исключение из рассмотрения незначимой. В ООП рассматривают лишь абстракцию данных (нередко называя её просто «абстракцией»), подразумевая набор значимых характеристик объекта, доступный остальной программе.</dd><dt>Инкапсуляция</dt><dd>Инкапсуляция — свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе. Некоторые языки (например, С++) отождествляют инкапсуляцию с сокрытием, но большинство (Smalltalk, Eiffel, OCaml) различают эти понятия.</dd><dt>Наследование</dt><dd>Наследование — свойство системы, позволяющее описать новый класс на основе уже существующего с частично или полностью заимствующейся функциональностью. Класс, от которого производится наследование, называется базовым, родительским или суперклассом. Новый класс — потомком, наследником, дочерним или производным классом.</dd><dt>Полиморфизм подтипов</dt><dd>Полиморфизм подтипов (в ООП называемый просто «полиморфизмом») — свойство системы, позволяющее использовать объекты с одинаковым интерфейсом без информации о типе и внутренней структуре объекта. Другой вид полиморфизма — параметрический — в ООП называют обобщённым программированием.</dd></dl><dl><dt>Класс </dt><dd>Класс является описываемой на языке терминологии исходного кода моделью ещё не существующей сущности (объекта). Фактически он описывает устройство объекта, являясь своего рода чертежом. Говорят, что объект — это <b>экземпляр</b> класса. При этом в некоторых исполняющих системах класс также может представляться некоторым объектом при выполнении программы посредством динамической идентификации типа данных. Обычно классы разрабатывают таким образом, чтобы их объекты соответствовали объектам предметной области.</dd><dt>Объект </dt><dd>Сущность в адресном пространстве вычислительной системы, появляющаяся при создании экземпляра класса (например, после запуска результатов компиляции и связывания исходного кода на выполнение).</dd></dl>В современных ОО языках используются механизмы:
+		<ul>
+			<li><i>Наследование</i>. Создание нового класса объектов путём добавления новых элементов (методов). Некоторые ОО языки позволяют выполнять множественное наследование, то есть объединять в одном классе возможности нескольких других классов.</li>
+			<li><i>Инкапсуляция</i>. Сокрытие деталей реализации, которое позволяет вносить изменения в части программы безболезненно для других её частей, что существенно упрощает сопровождение и модификацию ПО.</li>
+			<li><i>Полиморфизм</i>. При полиморфизме некоторые части (методы) родительского класса заменяются новыми, реализующими специфические для данного потомка действия. Таким образом, интерфейс классов остаётся прежним, а реализация методов с одинаковым названием и набором параметров различается. В ООП обычно применяется полиморфизм подтипов (называемый при этом просто «полиморфизмом»), нередко в форме <span class="iw" data-title="Позднее связывание">позднего связывания</span>.</li>
+		</ul>
+
+		Веб-фреймворк Django продолжает набирать обороты, пополняя армию своих фанатов. Многие начинающие программисты даже думают, что Python больше нигде не используется. Но на Python написаны многие другие веб-фреймворки:Pylons<span class="redactor-invisible-space">, TurboGears<span class="redactor-invisible-space">, CherryPy, Flask, Pyramid и другие. С более полным списком можно ознакомится здесь.
+		Есть и CMS на базе Django, она так и называется DjangoCMS.<span class="redactor-invisible-space">
+		Очень часто на Python пишут и парсеры сайтов. Обычно для этого используют Requests, aiohttp, BeautifulSoup, html5lib. Есть и более высокоуровневые инструменты для парсинга сайтов: <span class="comment"><span class="redactor-invisible-space"><span class="redactor-invisible-space"><span class="redactor-invisible-space">Scrapy, Grab</span></span></span></span>.</span></span></span>
+
+		Согласно Алану Кэю — автору языка программирования Smalltalk — объектно-ориентированным может называться язык, построенный с учетом следующих принципов:
+		<ul>
+			<li>Все данные представляются объектами</li>
+			<li>Программа является набором взаимодействующих объектов, посылающих друг другу сообщения</li>
+			<li>Каждый объект имеет собственную часть памяти и может иметь в составе другие объекты</li>
+			<li>Каждый объект имеет тип</li>
+			<li>Объекты одного типа могут принимать одни и те же сообщения (и выполнять одни и те же действия)</li>
+		</ul>
+		<h3><span id=".D0.9A.D0.BE.D0.BD.D1.81.D1.82.D1.80.D1.83.D0.BA.D1.82.D0.BE.D1.80_.D0.B8_.D0.B4.D0.B5.D1.81.D1.82.D1.80.D1.83.D0.BA.D1.82.D0.BE.D1.80" class="mw-headline">Конструктор и деструктор</span></h3>
+		Специальные методы вызываются при создании экземпляра класса (конструктор) и при удалении класса (деструктор). В языке Python реализовано автоматическое управление памятью, поэтому деструктор требуется достаточно редко, для ресурсов, требующих явного освобождения.
+
+		Следующий класс имеет конструктор и деструктор:
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="k">class</span> <span class="nc">Line</span><span class="p">:</span>
+			<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+
+			<span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+				<span class="k">print</span> <span class="s2">"Удаляется линия </span><span class="si">%s</span><span class="s2"> - </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">line</span>
+		</pre>
+		</div>
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="n">Line</span><span class="p">((</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">l</span>
+		<span class="err">Удаляется</span> <span class="err">линия</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span>
+		</pre>
+		</div>
+		В момент вызова деструктора (например, по завершении программы) среда исполнения может быть уже достаточно «истощённой», поэтому в деструкторе следует делать только самое необходимое. Кроме того, не обработанные в деструкторе исключения игнорируются.
+		<h3><span id=".D0.92.D1.80.D0.B5.D0.BC.D1.8F_.D0.B6.D0.B8.D0.B7.D0.BD.D0.B8_.D0.BE.D0.B1.D1.8A.D0.B5.D0.BA.D1.82.D0.B0" class="mw-headline">Время жизни объекта</span></h3>
+		Обычно время жизни объекта, определённого в программе на Python, не выходит за рамки времени выполнения процесса этой программы.
+
+		Для преодоления этого ограничения объект можно сохранить, а после — восстановить. Как правило, при записи объекта производится его сериализация, а при чтении — десериализация.
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">shelve</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"somefile.db"</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="s1">'myobject'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'свечка'</span><span class="p">]</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+		<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">shelve</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"somefile.db"</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">s</span><span class="p">[</span><span class="s1">'myobject'</span><span class="p">]</span>
+		<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'</span><span class="se">\xd1\x81\xd0\xb2\xd0\xb5\xd1\x87\xd0\xba\xd0\xb0</span><span class="s1">'</span><span class="p">]
+		</span></pre>
+		Объекты всегда имеют своё представление в памяти компьютера и их время жизни не больше времени работы программы. Однако зачастую необходимо сохранять данные между запусками приложения и/или передавать их на другие компьютеры. Одним из решений этой проблемы является устойчивость объектов (англ. <i><span lang="en" xml:lang="en">object persistence</span></i>) которая достигается с помощью хранения представлений объектов (сериализацией) в виде байтовых последовательностей и их последующего восстановления (десериализация).
+
+		Модуль <code>pickle</code> является наиболее простым способом «консервирования» объектов в Python.
+
+		Следующий пример показывает как работает сериализация и десериализация:
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="c1"># сериализация</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pickle</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+		<span class="s1">'c__builtin__</span><span class="se">\n</span><span class="s1">set</span><span class="se">\n</span><span class="s1">p0</span><span class="se">\n</span><span class="s1">((lp1</span><span class="se">\n</span><span class="s1">I8</span><span class="se">\n</span><span class="s1">aI1</span><span class="se">\n</span><span class="s1">aI2</span><span class="se">\n</span><span class="s1">aI3</span><span class="se">\n</span><span class="s1">aI5</span><span class="se">\n</span><span class="s1">atp2</span><span class="se">\n</span><span class="s1">Rp3</span><span class="se">\n</span><span class="s1">.'</span>
+
+		<span class="c1"># де-сериализация</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pickle</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s1">'c__builtin__</span><span class="se">\n</span><span class="s1">set</span><span class="se">\n</span><span class="s1">p0</span><span class="se">\n</span><span class="s1">((lp1</span><span class="se">\n</span><span class="s1">I8</span><span class="se">\n</span><span class="s1">aI1</span><span class="se">\n</span><span class="s1">aI2</span><span class="se">\n</span><span class="s1">aI3</span><span class="se">\n</span><span class="s1">aI5</span><span class="se">\n</span><span class="s1">atp2</span><span class="se">\n</span><span class="s1">Rp3</span><span class="se">\n</span><span class="s1">.'</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">p</span>
+		<span class="nb">set</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+		</pre>
+		</div>
+		Получаемая при сериализации строка может быть передана по сети, записана в файл или специальное хранилище объектов, а позже — прочитана. Сериализации поддаются не все объекты. Некоторые объекты (например, классы и функции) представляются своими именами, поэтому для десериализации требуется наличие тех же самых классов. Нужно отметить что нельзя десериализовать данные из непроверенных источников с помощью модуля <code>pickle</code>, так как при этом возможны практически любые действия на локальной системе. При необходимости обмениваться данными по незащищенным каналам или с ненадежными источниками можно воспользоваться другими модулями для сериализации.
+
+		В основе сериализации объекта стоит представление его состояния. По умолчанию состояние объекта — это все, что записано в его полях. Пользовательские классы могут управлять сериализацией, предоставляя состояние объекта явным образом (методы <code>__getstate__</code>, <code>__setstate__</code> и др.).
+
+		На стандартном для Python механизме сериализации построена работа модуля <code>shelve</code> (shelve(англ. глаг.) — ставить на полку; сдавать в архив). Модуль предоставляет функцию <code>open</code>. Объект, который она возвращает, работает аналогично словарю, но объекты сериализуются и сохраняются в файле:
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">shelve</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"myshelve.bin"</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="s1">'abc'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+		<span class="c1"># .....</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"myshelve.bin"</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="s1">'abc'</span><span class="p">]</span>
+		<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+		</pre>
+		</div>
+		Сериализация <code>pickle</code> — не единственная возможная, и подходит не всегда. Для сериализации, независимой от языка программирования, можно использовать, например, XML.
+		<h3><span id=".D0.9C.D0.B5.D1.82.D0.BE.D0.B4" class="mw-headline">Метод</span></h3>
+		Синтаксис описания метода ничем не отличается от описания функции, разве что его положением внутри класса и характерным первым формальным параметром <code>self</code>, с помощью которого внутри метода можно ссылаться на сам экземпляр класса (название self является соглашением, которого придерживаются программисты на Python):
+		<h3><span id=".D0.A1.D1.82.D0.B0.D1.82.D0.B8.D1.87.D0.B5.D1.81.D0.BA.D0.B8.D0.B9_.D0.BC.D0.B5.D1.82.D0.BE.D0.B4" class="mw-headline">Статический метод</span></h3>
+		Статические методы в Python являются синтаксическими аналогами статических функций в основных языках программирования. Они не получают ни экземпляр (<code>self</code>), ни класс (<code>cls</code>) первым параметром. Для создания статического метода (только«новые» классы могут иметь статические методы) используется декоратор <code>staticmethod</code>
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  
+			   <span class="nd">@staticmethod</span>
+			   <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+				   <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span>
+		<span class="o">...</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">D</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># доступ к статическому методу можно получать и через класс</span>
+		<span class="bp">False</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># и через экземпляр класса</span>
+		<span class="bp">True</span>
+		</pre>
+		</div>
+		Статические методы реализованы с помощью свойств (property).
+		<h3><span id=".D0.9C.D0.B5.D1.82.D0.BE.D0.B4_.D0.BA.D0.BB.D0.B0.D1.81.D1.81.D0.B0" class="mw-headline">Метод класса</span></h3>
+		Классовые методы в Python занимают промежуточное положение между статическими и обычными. В то время как обычные методы получают первым параметром экземпляр класса, а статические не получают ничего, в классовые методы передается класс. Возможность создания классовых методов является одним из следствий того, что в Python классы также являются объектами. Для создания классового (только «новые» классы могут иметь классовые методы) метода можно использовать декоратор <code>classmethod</code>
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  
+			  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">int_val</span><span class="p">):</span>
+				  <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">+</span> <span class="mi">1</span>
+			  <span class="nd">@classmethod</span>
+			  <span class="k">def</span> <span class="nf">fromString</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>   <span class="c1"># вместо self принято использовать cls</span>
+				  <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+		<span class="o">...</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span><span class="k">pass</span>
+		<span class="o">...</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">fromString</span><span class="p">(</span><span class="s2">"1"</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span>
+		<span class="n">A</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">fromString</span><span class="p">(</span><span class="s2">"1"</span><span class="p">)</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span>
+		<span class="n">B</span>
+		</pre>
+		</div>
+		Классовые методы достаточно часто используются для перегрузки конструктора. Классовые методы, как и статические, реализуются через свойства (property).
+		<h3><span id=".D0.9C.D1.83.D0.BB.D1.8C.D1.82.D0.B8.D0.BC.D0.B5.D1.82.D0.BE.D0.B4.D1.8B" class="mw-headline">Мультиметоды</span></h3>
+		Примером для иллюстрации сути мультиметода может служить функция <code>add()</code> из модуля <code>operator</code>:
+		<div class="mw-highlight mw-content-ltr" dir="ltr">
+		<pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">operator</span> <span class="kn">as</span> <span class="nn">op</span>
+		<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">op</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">op</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">op</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">op</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2j</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+		<span class="mi">4</span> <span class="mf">4.0</span> <span class="mf">4.0</span> <span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2j</span><span class="p">)</span>
+		</pre>
+		</div>
+		В языке Python достаточно легко реализовать и определённые пользователем мультиметоды<sup id="cite_ref-python_multimethods_9-0" class="reference">[9]</sup>. Например, эмулировать мультиметоды можно с помощью модуля multimethods.py (из Gnosis Utils) :
+		<pre><span class="p"> </span></pre>
+		</div>
+	</section>
+</main><!-- /.content -->
+<footer>
+   <div class="container">
+       <div class="progress">
+           <div class="progress-bar progress-bar-success" style="width: 25%">25% Complete</div>
+           <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 75%">Wait to complete</div>
+       </div>
+   </div>
+</footer>
+
+<!-- javaScript -->
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="script/initBootstrap.js" async></script>
+<script src="script/checkInput.js" async></script>
+<script src="script/dataRequest.js" async></script>
+<script src="script/buildCarDescription.js" async></script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+.content {
+    margin-top:10rem;
+}
+section,
+#css section > div,
+#http .structure  div {
+    padding: 1rem;
+}
+.group-about {
+    border-bottom: 0.1em solid#3E609C;
+}
+.group-title {
+    font-size: 2em;
+    font-style: italic;
+}
+
+#http .structure .text-description {
+    padding-left: 5rem;
+}
+#http .structure .title {
+    font-size: 1.3em;
+    font-style: italic;
+    text-decoration: underline;
+}
+#http .structure .subtitle {
+    font-size: 1.2em;
+}
+#http .structure .subtitle::first-letter {
+    color:darkred;
+    font-weight: 600;
+}
+#js .cars-info div {
+    padding: 0.5em;
+}
+#js .cars-info img {
+    border-radius: 0.2em;
+}
+#js .cars-info .car-name{
+    font-size: 2em;
+    border-bottom: 0.1em solid rgb(148, 71, 71);
+}
+
+/*-- example style --*/
+.example-class-list, .example-class-too,
+.example-class-universal *,
+.example-class-arg li.ok,
+.example-class-plus li.ok + li,
+.example-class-tilde li.ok ~ li,
+#example-class-child li > .sibling,
+#example-class-atr span[data-info] {
+    color: #3c763d;
+    background-color: #dff0d8;
+    transition: all 0.5s;
+}
+.example-class-pseudo li:hover,
+.example-class-pseudo li:active,
+.example-class-pseudo li:focus {
+    background:rgba(0, 153, 0, 0.27);
+    list-style: none;
+    cursor:pointer;
+}
+/*--- / example style ---*/
+

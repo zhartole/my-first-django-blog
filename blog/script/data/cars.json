@@ -1,0 +1,16 @@
+[
+    {
+        "age": 0,
+        "id": "mercedes-benz-cls",
+        "name": "Mercedes Benz CLS",
+        "snippet": "From its muscular stance to its scintillating details, the CLS combines power and poise to be a true Mercedes-Benz coupe.",
+        "imageUrl": "http://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/ClassLanding/2015/CLS/Features/2015-CLS-CLASS-COUPE-077-CCF-D.jpg"
+    }, 
+    {
+        "age": 1,
+        "id": "audi-a7-sport",
+        "name": "Audi A7 Sportback",
+        "snippet": "Audi has seen the success of the CLS and - whisper it - Panamera, and now it wants a bit of the action itself. Enter the recently facelifted A7 Sportback.",
+        "imageUrl": "http://www.topgear.com/sites/default/files/styles/fit_1960x1102/public/cars-car/carousel/2015/02/buyers_guide_-_audi_a7_sb_2014_-_side.jpg?itok=ZF-SEa98"
+    }
+]
